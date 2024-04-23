@@ -1,0 +1,1755 @@
+$textColor: #484848;
+// $textColor: #333;
+$whiteColor: #fff;
+$primary: #0b4d3c;
+$primaryColor: #00a669;
+
+$borderColor: #dfdfdf;
+
+$secondaryColor: #fcb900;
+
+@import "./mixin";
+
+@font-face {
+  font-family: "Fuzzy Bubbles";
+  src: url("../fonts/FuzzyBubbles-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Fuzzy Bubbles";
+  src: url("../fonts/FuzzyBubbles-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+}
+
+.active {
+  color: $secondaryColor !important;
+}
+
+* {
+  font-family: "Manrope", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  color: $textColor;
+}
+
+header {
+  display: flex;
+  width: 86%;
+  padding: 20px 7%;
+  background: $primary;
+
+  @include semiTablet() {
+    width: 90%;
+    padding: 20px 5%;
+  }
+
+  @include phone() {
+    // background: blue;
+  }
+
+  @include smallPhone() {
+    width: 94%;
+    padding: 10px 3%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .thebar {
+    width: 200px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    #menuBurger {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      outline: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+
+      @include phone() {
+        display: flex;
+      }
+
+      background-color: $primaryColor;
+
+      span {
+        font-size: 17px;
+        color: $whiteColor;
+      }
+
+      i {
+        font-size: 26px;
+        color: $whiteColor;
+      }
+    }
+
+    @include mobile() {
+      width: 140px;
+      margin-right: 20px;
+    }
+
+    @include phone() {
+      width: 100%;
+      margin-right: 0px;
+
+      a {
+        display: block;
+        max-width: 200px;
+      }
+    }
+
+    @include smallPhone() {
+      a {
+        display: block;
+        max-width: 160px;
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    @include phone() {
+      display: none;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+
+      @include mobile() {
+        gap: 12px;
+
+        a {
+          font-size: 16px;
+        }
+      }
+
+      li {
+        list-style-type: none;
+
+        a {
+          text-decoration: none;
+          color: $whiteColor;
+          font-size: 18px;
+          display: block;
+          text-wrap: nowrap;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    .essential_button {
+      li {
+        .active {
+          color: $secondaryColor !important;
+        }
+
+        a {
+          text-decoration: none;
+          color: $whiteColor;
+          font-size: 18px;
+          padding: 10px 20px;
+
+          @include mobile() {
+            font-size: 16px;
+            padding: 8px 16px;
+          }
+        }
+
+        &:last-child {
+          a {
+            background-color: $primaryColor;
+            border-radius: 8px;
+          }
+          .active {
+            background-color: $secondaryColor !important;
+            color: $primary !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+#hero,
+#abouthero {
+  background: $primary;
+  min-height: 500px;
+  width: 86%;
+  padding: 50px 7%;
+  display: grid;
+  grid-template-columns: 50% 45%;
+  align-items: center;
+  gap: 5%;
+
+  h2 {
+    color: $whiteColor;
+    margin: 0;
+    font-size: 59px;
+    font-weight: 700;
+    span {
+      font-family: "Fuzzy Bubbles", sans-serif;
+      color: $secondaryColor;
+      // font-size: 100px;
+      // display: block;
+    }
+  }
+
+  p {
+    color: $whiteColor;
+    margin-top: 30px;
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  .herolink {
+    display: flex;
+    gap: 20px;
+    a {
+      padding: 20px 30px;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 10px;
+      color: $whiteColor;
+      background: $secondaryColor;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        background-color: rgba($secondaryColor, 0.43);
+      }
+
+      &:first-child {
+        background-color: $primaryColor;
+
+        &:hover {
+          background-color: rgba($primaryColor, 0.43);
+        }
+      }
+    }
+  }
+
+  .hero-images {
+    ul {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      gap: 15px;
+
+      li {
+        width: 100%;
+        list-style-type: none;
+        height: 200px;
+        background: rgb(123, 114, 114);
+        border-radius: 30px;
+        overflow: hidden;
+        display: flex;
+
+        img {
+          transition: all 1.4s ease-in-out;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.2);
+          }
+        }
+
+        &:first-child {
+          grid-row: 1 / span 2;
+          height: 300px;
+        }
+        &:nth-child(3) {
+          grid-row: 2 / span 3;
+          height: 300px;
+        }
+      }
+    }
+  }
+}
+
+#abouthero {
+  h2 {
+    color: $secondaryColor;
+    margin: 0;
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  div > p {
+    line-height: 170%;
+  }
+
+  .hero-images {
+    ul {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      gap: 15px;
+
+      li {
+        width: 100%;
+        list-style-type: none;
+        height: 200px;
+        background: rgb(123, 114, 114);
+        border-radius: 30px;
+        overflow: hidden;
+        display: flex;
+
+        img {
+          transition: all 1.4s ease-in-out;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.2);
+          }
+        }
+
+        &:first-child {
+          grid-row: 1 / span 2;
+          height: 300px;
+        }
+        &:last-child {
+          grid-row: 2 / span 3;
+          height: 300px;
+        }
+      }
+    }
+  }
+}
+
+#ourImpact {
+  background: rgba($primaryColor, 0.09);
+  min-height: 500px;
+  width: 86%;
+  padding: 50px 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  h2 {
+    color: $secondaryColor;
+    margin: 0;
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    padding: 0;
+  }
+  div > p {
+    line-height: 170%;
+    color: $primary;
+    text-align: center;
+    max-width: 1000px;
+    width: 90%;
+    margin: 10px auto 40px auto;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .hero-images {
+    ul {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      gap: 15px;
+
+      li {
+        width: 100%;
+        list-style-type: none;
+        height: 200px;
+        background: rgb(123, 114, 114);
+        border-radius: 30px;
+        overflow: hidden;
+        display: flex;
+
+        img {
+          transition: all 1.4s ease-in-out;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.2);
+          }
+        }
+
+        &:first-child {
+          grid-row: 1 / span 2;
+          height: 300px;
+        }
+        &:last-child {
+          grid-row: 2 / span 3;
+          height: 300px;
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 300;
+    color: $whiteColor;
+    background-color: $primaryColor;
+    border-radius: 4px;
+    width: fit-content;
+    padding: 15px 30px;
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondaryColor;
+    }
+  }
+}
+
+#causeheader {
+  display: flex;
+  flex-direction: column;
+  background: rgba($primaryColor, 0.13);
+
+  strong {
+    font-size: 70px;
+
+    @include semiTablet() {
+      font-size: 50px;
+    }
+
+    @include mobile() {
+      font-size: 35px;
+    }
+
+    @include mobile() {
+      font-size: 25px;
+    }
+  }
+  p {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+
+    @include semiTablet() {
+      font-size: 20px;
+    }
+
+    @include mobile() {
+      font-size: 16px;
+    }
+
+    @include phone() {
+      font-size: 16px;
+      text-align: justify;
+    }
+  }
+}
+
+main,
+#ourBelieve,
+#causes,
+#causeheader,
+#ourStory,
+#getInvolved,
+#event,
+#volunteers,
+#vision {
+  width: 86%;
+  padding: 20px 7% 40px 7%;
+
+  @include semiTablet() {
+    width: 90%;
+    padding: 20px 5% 40px 5%;
+  }
+}
+
+#causes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3% 6%;
+  padding: 70px 7% 100px 7%;
+
+  @include semiTablet() {
+    padding: 70px 5% 100px 5%;
+    gap: 2% 4%;
+  }
+
+  @include phone() {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 5% 60px 5%;
+  }
+
+  @include smallPhone() {
+    padding: 30px 3% 40px 3%;
+  }
+
+  // @include mobile() {
+  //   font-size: 35px;
+  // }
+
+  div {
+    strong {
+      font-size: 29px;
+      @include semiTablet() {
+        font-size: 24px;
+      }
+
+      @include mobile() {
+        font-size: 20px;
+      }
+    }
+    p {
+      font-size: 19px;
+      line-height: 160%;
+      text-align: justify;
+
+      @include semiTablet() {
+        font-size: 17px;
+      }
+
+      @include mobile() {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+#support {
+  background-color: rgba($secondaryColor, 0.23);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 70px 7% 80px 7%;
+
+  @include semiTablet() {
+    padding: 70px 5% 100px 5%;
+    gap: 20px;
+  }
+
+  @include phone() {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 5% 60px 5%;
+  }
+
+  @include smallPhone() {
+    padding: 30px 3% 40px 3%;
+  }
+
+  strong {
+    font-size: 39px;
+    text-align: center;
+
+    @include semiTablet() {
+      font-size: 29px;
+    }
+
+    @include phone() {
+      font-size: 25px;
+    }
+
+    @include smallPhone() {
+      font-size: 18px;
+    }
+  }
+  p {
+    font-size: 19px;
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 160%;
+
+    @include semiTablet() {
+      font-size: 17px;
+    }
+
+    @include phone() {
+      font-size: 15px;
+    }
+
+    @include smallPhone() {
+      font-size: 12px;
+    }
+  }
+
+  .herolink {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @include semiPhone() {
+      gap: 10px;
+    }
+    @include smallPhone() {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    a {
+      padding: 15px 40px;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      color: $whiteColor;
+      background: $secondaryColor;
+      transition: all 0.5s ease-in-out;
+      max-width: fit-content;
+
+      @include semiPhone() {
+        padding: 12px 30px;
+        font-size: 15px;
+        border-radius: 4px;
+      }
+      @include smallPhone() {
+        flex-direction: column;
+        font-size: 13px;
+        padding: 10px 24px;
+      }
+
+      &:hover {
+        background-color: rgba($secondaryColor, 0.43);
+      }
+
+      &:first-child {
+        background-color: $primaryColor;
+
+        &:hover {
+          background-color: rgba($primaryColor, 0.43);
+        }
+      }
+    }
+  }
+}
+
+#ourStory {
+  display: grid;
+  padding: 80px 0;
+  grid-template-columns: 45% 50%;
+  gap: 5%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  // align-items: center;
+
+  .imagePlaceholder {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    &:after {
+      content: "Over 800 Beneficiaries since inception";
+      font-family: "Fuzzy Bubbles", sans-serif;
+      font-weight: 700;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      background: $secondaryColor;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+
+  div {
+    display: block;
+
+    strong {
+      font-size: 45px;
+    }
+    p {
+      font-size: 21px;
+      line-height: 165%;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+#ourMission {
+  display: grid;
+  background: rgba($secondaryColor, 0.23);
+  padding: 80px 0;
+  grid-template-columns: 45% 50%;
+  padding: 70px 7% 60px 7%;
+  gap: 5%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  // align-items: center;
+
+  .imagePlaceholders {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 50px;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 50%;
+    }
+
+    &:after {
+      content: "Over 50+ Volunteers since inception";
+      font-family: "Fuzzy Bubbles", sans-serif;
+      font-weight: 700;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      background: $secondaryColor;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      strong {
+        font-size: 45px;
+      }
+      p {
+        font-size: 21px;
+        line-height: 165%;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+#volunteers {
+  display: grid;
+  grid-template-columns: 36% 60%;
+  padding-top: 80px;
+  gap: 4%;
+  padding-bottom: 80px;
+
+  div {
+    strong {
+      font-size: 45px;
+    }
+    p {
+      font-size: 21px;
+      line-height: 150%;
+      margin-bottom: 40px;
+    }
+
+    a {
+      font-size: 17px;
+      font-weight: 300;
+      color: $whiteColor;
+      background-color: $primaryColor;
+      border-radius: 4px;
+      width: fit-content;
+      padding: 15px 30px;
+      border: none;
+      display: block;
+      margin-top: 30px;
+      outline: none;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        background-color: $secondaryColor;
+      }
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px 10px;
+    li {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      span {
+        font-weight: 500;
+        font-size: 15px;
+        padding: 10px;
+      }
+    }
+  }
+}
+#getInvolved {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  strong {
+    font-size: 45px;
+  }
+  p {
+    font-size: 20px;
+    width: 90%;
+    max-width: 924px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    li {
+      list-style-type: none;
+      font-size: 18px;
+      text-align: justify;
+      line-height: 160%;
+      b {
+        display: block;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      a {
+        font-family: "Fuzzy Bubbles", sans-serif;
+        color: $primaryColor;
+        text-transform: capitalize;
+        display: block;
+        padding: 14px 0 0;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          color: $secondaryColor;
+        }
+      }
+    }
+  }
+}
+
+#event {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba($secondaryColor, 0.43);
+
+  strong {
+    font-size: 45px;
+  }
+  p {
+    font-size: 20px;
+    width: 90%;
+    max-width: 924px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  #play {
+    position: relative;
+    max-width: 800px;
+    width: 90%;
+    height: 550px;
+    overflow: hidden;
+    border-radius: 200px;
+
+    div {
+      display: flex;
+      width: 100%;
+      height: 100%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    .overlay {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      background: rgba($borderColor, 0.69);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      strong {
+        color: $primary;
+        text-transform: capitalize;
+        font-size: 14px;
+        background: $secondaryColor;
+        padding: 10px 15px;
+        border-radius: 60px;
+        cursor: pointer;
+        font-family: "Fuzzy Bubbles", sans-serif;
+
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          background: $primary;
+          color: $secondaryColor;
+        }
+      }
+    }
+  }
+}
+
+#ourBelieve {
+  display: grid;
+  padding: 80px 0;
+  grid-template-columns: 45% 50%;
+  gap: 5%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  // align-items: center;
+
+  #imagePlaceholder {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    &:after {
+      content: "Our Believe";
+      font-family: "Fuzzy Bubbles", sans-serif;
+      font-weight: 700;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      background: $secondaryColor;
+      font-size: 28px;
+      padding: 10px 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+
+  div {
+    display: block;
+    a {
+      font-size: 17px;
+      font-weight: 300;
+      color: $whiteColor;
+      background-color: $primaryColor;
+      border-radius: 4px;
+      width: fit-content;
+      padding: 15px 30px;
+      border: none;
+      display: block;
+      margin-top: 30px;
+      outline: none;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        background-color: $secondaryColor;
+      }
+    }
+    p {
+      font-size: 29px;
+      margin: 0;
+      margin-top: 30px;
+
+      b {
+        color: $secondaryColor;
+      }
+    }
+  }
+}
+
+#vision {
+  background: rgba($primaryColor, 0.23);
+  padding-top: 80px;
+  // padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  strong {
+    font-size: 45px;
+  }
+  p {
+    font-size: 20px;
+    width: 90%;
+    max-width: 924px;
+    text-align: center;
+  }
+}
+
+#program {
+  background: rgba($primaryColor, 0.23);
+  padding-bottom: 80px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    li {
+      list-style-type: none;
+      height: 600px;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      img {
+        width: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+        .overlay {
+          transform: scale(1);
+        }
+      }
+
+      .overlay {
+        position: absolute;
+        background-color: rgba($primary, 0.8);
+        height: 100%;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+
+        transform: scale(0);
+
+        .content {
+          padding: 50px 7% 30px 7%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: calc(100% - 80px);
+          transition: all 0.5s ease-in-out;
+
+          strong {
+            font-size: 50px;
+            font-family: "Fuzzy Bubbles", sans-serif;
+            color: $whiteColor;
+          }
+
+          p {
+            color: $whiteColor;
+            font-size: 18px;
+          }
+          a {
+            text-decoration: none;
+            font-size: 15px;
+            padding: 0 30px;
+            text-align: center;
+            color: $whiteColor;
+            width: fit-content;
+            margin: 0 auto;
+            text-decoration: underline;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+              font-size: 17px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: $primary;
+  width: 86%;
+  padding: 20px 7% 40px 7%;
+
+  .top {
+    display: grid;
+    min-height: 300px;
+    grid-template-columns: auto 330px;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    h3 {
+      font-size: 35px;
+      width: 90%;
+      max-width: 700px;
+      color: $whiteColor;
+      font-weight: 500;
+    }
+
+    div {
+      display: block;
+      position: relative;
+      height: 80%;
+      a {
+        position: relative;
+        background-color: $secondaryColor;
+        font-size: 30px;
+        display: block;
+        width: 250px;
+        max-width: 100%;
+        padding: 20px 40px;
+        color: $primary;
+        text-decoration: none;
+
+        i {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          transform: rotate(40deg);
+          width: 30px;
+          height: 30px;
+          color: $primary;
+        }
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 46%;
+        width: 4px;
+        right: 15px;
+        bottom: 0px;
+        border-radius: 10px;
+        background: $secondaryColor;
+      }
+    }
+  }
+
+  .bottom {
+    ul {
+      margin: 0;
+      padding: 0;
+
+      #address {
+        border-bottom: 1px solid $secondaryColor;
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+
+        @include mobile() {
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+        }
+      }
+
+      li {
+        list-style-type: none;
+
+        a {
+          text-decoration: none;
+        }
+
+        &:first-child {
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+
+          @include phone() {
+            flex-direction: column-reverse;
+            align-items: start;
+            gap: 6px;
+          }
+
+          div {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            strong {
+              font-size: 20px;
+              color: $whiteColor;
+
+              @include mobile() {
+                font-size: 18px;
+              }
+
+              @include phone() {
+                display: none;
+              }
+            }
+
+            p {
+              margin: 0;
+              padding: 0;
+              display: flex;
+              gap: 10px;
+              align-items: center;
+
+              i {
+                color: $secondaryColor;
+              }
+            }
+          }
+
+          span {
+            text-transform: uppercase;
+            color: $secondaryColor;
+            font-weight: 700;
+            font-size: 14px;
+            @include mobile() {
+              font-size: 12px;
+            }
+          }
+        }
+
+        &:last-child {
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+
+          p {
+            padding: 0;
+            margin: 0;
+            color: $whiteColor;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+
+            @include mobile() {
+              font-size: 12px;
+            }
+          }
+
+          ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            li {
+              a {
+                display: block;
+                color: $secondaryColor;
+                padding: 0 10px;
+                font-size: 14px;
+
+                @include mobile() {
+                  font-size: 12px;
+                  padding: 0 7px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include semiTablet() {
+    width: 90%;
+    padding: 20px 5% 40px 5%;
+
+    .top {
+      gap: 10px;
+    }
+  }
+
+  @include smallPhone() {
+    width: 94%;
+    padding: 10px 3% 20px 3%;
+  }
+
+  @include mobile() {
+    .top {
+      grid-template-columns: auto 210px;
+      min-height: 200px;
+
+      h3 {
+        font-size: 25px;
+      }
+
+      div {
+        display: block;
+        position: relative;
+        height: 80%;
+        a {
+          position: relative;
+          background-color: $secondaryColor;
+          font-size: 20px;
+          display: block;
+          width: 150px;
+          max-width: 100%;
+          padding: 15px 35px 15px 20px;
+          color: $primary;
+          text-decoration: none;
+
+          i {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            transform: rotate(40deg);
+            width: 15px;
+            height: 15px;
+            color: $primary;
+          }
+        }
+
+        &:after {
+          width: 3px;
+        }
+      }
+    }
+  }
+
+  @include phone() {
+    .top {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 0px;
+      margin-bottom: 20px;
+
+      h3 {
+        text-align: left;
+      }
+
+      div {
+        a {
+          width: fit-content;
+          padding-right: 60px;
+        }
+      }
+    }
+  }
+}
+
+#consent {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+
+  span {
+    color: $textColor !important;
+    font-size: 15px;
+    font-weight: 300;
+  }
+}
+#donate,
+#volunteers {
+  #donateframe {
+    width: 620px;
+    margin: 50px auto 30px auto;
+    padding: 40px 60px;
+    border: 1px solid $borderColor;
+    border-radius: 10px;
+
+    @include mobile() {
+      max-width: calc(100% - 80px);
+      padding: 30px 40px;
+      margin: 40px auto 20px auto;
+    }
+
+    @include phone() {
+      max-width: calc(100% - 40px);
+      padding: 10px 20px;
+      margin: 30px auto 15px auto;
+    }
+
+    @include semiPhone() {
+      max-width: 100%;
+      padding: 10px 0;
+      margin: 30px auto 15px auto;
+      border: none;
+    }
+
+    h2 {
+      font-size: 45px;
+      margin: 0;
+      padding: 0;
+      color: $textColor;
+      text-align: center;
+
+      @include mobile() {
+        font-size: 35px;
+      }
+
+      @include phone() {
+        font-size: 30px;
+      }
+
+      @include semiPhone() {
+        font-size: 24px;
+      }
+    }
+    p {
+      font-size: 18px;
+      text-align: center;
+      max-width: 90%;
+      font-weight: 300;
+      margin: 0 auto 40px auto;
+
+      @include phone() {
+        font-size: 16px;
+      }
+
+      @include semiPhone() {
+        font-size: 14px;
+      }
+    }
+
+    form {
+      // background: $whiteColor;
+
+      input,
+      textarea,
+      select {
+        display: block;
+        border: none;
+        outline: none;
+        color: $textColor;
+        font-weight: 300;
+        font-size: 14px;
+
+        @include phone() {
+          font-size: 13px;
+        }
+
+        @include smallPhone() {
+          font-size: 11px;
+        }
+        // width: calc(100% - 10px);
+      }
+
+      #labelamount {
+        background: $whiteColor;
+        border: 1px solid $borderColor;
+        display: flex;
+        padding: 14px 15px;
+        border-radius: 4px;
+
+        transition: all 0.5s ease-in-out;
+        &:hover,
+        &:focus,
+        &:active {
+          border: 1px solid rgba($primaryColor, 0.43);
+        }
+
+        input {
+          width: calc(100% - 10px);
+        }
+        span {
+          font-size: 17px;
+          font-weight: 700;
+          padding-right: 5px;
+          text-align: right;
+          color: $primaryColor;
+        }
+      }
+
+      ul {
+        margin: 12px 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        li {
+          list-style-type: none;
+          background-color: $primaryColor;
+          color: $whiteColor;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 40px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          border-radius: 4px;
+          transition: all 0.5s ease-in-out;
+
+          &:hover {
+            background: $secondaryColor;
+          }
+        }
+      }
+
+      section {
+        strong {
+          font-size: 20px;
+          display: block;
+          margin-top: 30px;
+          margin-bottom: 10px;
+
+          @include phone() {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 8px;
+          }
+
+          @include semiPhone() {
+            font-size: 16px;
+            margin-top: 18px;
+            margin-bottom: 6px;
+          }
+        }
+        .payment_method {
+          display: inline-flex;
+          gap: 6px;
+          margin-right: 30px;
+          margin-left: 10px;
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .personal_form {
+          display: block;
+
+          input,
+          textarea,
+          select {
+            width: calc(100% - 33px);
+            background: $whiteColor;
+            border: 1px solid $borderColor;
+            display: flex;
+            padding: 14px 15px;
+            border-radius: 4px;
+            transition: all 0.5s ease-in-out;
+            &:hover,
+            &:focus,
+            &:active {
+              border: 1px solid rgba($primaryColor, 0.43);
+            }
+
+            @include phone() {
+              width: calc(100% - 26px);
+
+              padding: 10px 12px;
+            }
+          }
+
+          select {
+            width: 100%;
+          }
+
+          input[type="checkbox"] {
+            border-radius: 6px;
+            max-width: 20px;
+            height: 20px;
+            padding: 0px;
+            display: block;
+            // appearance: none;
+            color: $primaryColor;
+
+            &:checked {
+              background: rgba($primaryColor, 0.43) !important;
+            }
+          }
+          .halve {
+            width: 49.5%;
+            margin-bottom: 15px;
+            overflow: hidden;
+            display: inline-block;
+
+            @include semiPhone() {
+              width: 100%;
+              flex-direction: column;
+            }
+          }
+          .full {
+            width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+          }
+
+          label {
+            font-size: 14px;
+            font-weight: 500;
+            padding-left: 2px;
+
+            @include phone() {
+              font-size: 13px;
+            }
+
+            @include semiPhone() {
+              font-size: 11px;
+            }
+            span {
+              color: red;
+            }
+          }
+        }
+      }
+
+      #details {
+        width: 100%;
+
+        .accounts {
+          display: grid;
+          background: rgba($primary, 0.13);
+          border-radius: 8px;
+          align-items: center;
+          grid-template-columns: calc(50% - 60px) 80px calc(50% - 60px);
+          width: 100%;
+          padding: 10px 0;
+          margin-bottom: 20px;
+          em {
+            font-size: 18px;
+            text-align: center;
+          }
+          p {
+            text-align: left;
+            padding: 0;
+            margin-bottom: 5px;
+            b {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      h4 {
+        font-size: 17px;
+        margin: 0;
+        padding: 20px 0;
+      }
+      button {
+        font-size: 17px;
+        font-weight: 300;
+        color: $whiteColor;
+        background-color: $primaryColor;
+        border-radius: 4px;
+        padding: 15px 30px;
+        border: none;
+        outline: none;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          background-color: $secondaryColor;
+        }
+      }
+    }
+  }
+}
+
+#contact {
+  max-width: 960px;
+
+  margin: 30px auto;
+
+  #header {
+    display: grid;
+    grid-template-columns: 320px auto;
+    gap: 20px;
+    align-items: center;
+
+    h1 {
+      font-size: 40px;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $primaryColor;
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 25px;
+
+    label {
+      display: flex;
+      align-items: center;
+      span {
+        text-wrap: nowrap;
+        padding-right: 5px;
+        font-size: 30px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        display: block;
+        border: none;
+        outline: none;
+        font-size: 26px;
+        border-bottom: 1px solid $borderColor;
+        transition: all 0.5s ease-in-out;
+
+        &:focus {
+          padding-left: 10px;
+          border-bottom-color: rgba($primaryColor, 0.63);
+        }
+      }
+    }
+
+    button {
+      font-size: 17px;
+      font-weight: 300;
+      color: $whiteColor;
+      background-color: $primaryColor;
+      border-radius: 4px;
+      width: fit-content;
+      padding: 15px 30px;
+      border: none;
+      outline: none;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        background-color: $secondaryColor;
+      }
+    }
+  }
+}
